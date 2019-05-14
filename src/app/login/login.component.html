@@ -1,0 +1,45 @@
+<h2>Login</h2>
+<!-- <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <div class="form-group"></div>
+        <label for="username">Username :</label>
+        <input type="text" formControlName="username" class="form-control"  />
+        
+        <div *ngIf="uname.touched && uname.invalid" class="alert alert-danger">
+            <div *ngIf="uname.errors.required">Username is required</div>
+            <div *ngIf="uname.errors.minlength">Username should be minimum {{ uname.errors.minlength.requiredLength}} characters long </div>
+
+        </div>
+        
+        <br>
+  
+    <div class="form-group">
+        <label for="password">Password :</label>
+        <input  type="password" formControlName="password" class="form-control" />
+        
+            <div *ngIf="passwordd.touched && passwordd.invalid" class="alert alert-danger">Password is required</div>
+        
+    </div>
+    <br/>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Login</button>
+<br/>
+        
+       
+    </div> -->
+
+    <h4 *ngIf="error">{{error}}</h4>
+<form (ngSubmit)="submit()">
+  <div class="form-group col-3">
+    <label for="username">Username :</label>
+    <input type="text" name="username" class="form-control" [(ngModel)]="username" />
+  </div>
+  <br>
+  <div class="form-group col-3">
+    <label for="password">Password :</label>
+    <input type="password" name="password" class="form-control" [(ngModel)]="password" />
+  </div> 
+  <br>
+  <div class="form-group col-3">
+    <button class="btn btn-primary" type="submit">Login</button>
+  </div>
+</form>
