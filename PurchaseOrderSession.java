@@ -31,7 +31,8 @@ public class PurchaseOrderSession {
     private OtherCharge otherCharges;
     private Integer approvalStatus;
     private String remark;
-    private PaymentTerms paymentTerms;
+    private List<PaymentTerm> paymentTerms = new ArrayList<>();
+
 
 
 
@@ -92,11 +93,11 @@ public class PurchaseOrderSession {
         this.otherCharges = otherCharges;
     }
 
-  public PaymentTerms getPaymentTerms() {
+    public List<PaymentTerm> getPaymentTerms() {
     return paymentTerms;
   }
 
-  public void setPaymentTerms(PaymentTerms paymentTerms) {
+    public void setPaymentTerms(List<PaymentTerm> paymentTerms) {
     this.paymentTerms = paymentTerms;
   }
 
@@ -944,7 +945,7 @@ public class PurchaseOrderSession {
         }
     }
 
-  public static class PaymentTerms{
+  public static class PaymentTerm{
 
     private String term;
     private Integer value;
