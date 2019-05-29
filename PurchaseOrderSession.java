@@ -24,13 +24,16 @@ public class PurchaseOrderSession {
     private String customerPoNum;
     private Integer createdBy;
     private String createdByName;
-    private String remark;
-    private String customerVendorCode;
+    private Integer customerVendorCode;
     private String idAddress;
     private SapDetail sapDetails;
     private Tax tax;
     private OtherCharge otherCharges;
     private Integer approvalStatus;
+    private String remark;
+    private PaymentTerms paymentTerms;
+
+
 
 
     public String get_id() {
@@ -89,6 +92,14 @@ public class PurchaseOrderSession {
         this.otherCharges = otherCharges;
     }
 
+  public PaymentTerms getPaymentTerms() {
+    return paymentTerms;
+  }
+
+  public void setPaymentTerms(PaymentTerms paymentTerms) {
+    this.paymentTerms = paymentTerms;
+  }
+
     public Vendor getVendor() {
         return vendor;
     }
@@ -129,11 +140,11 @@ public class PurchaseOrderSession {
         this.createdByName = createdByName;
     }
 
-    public String getCustomerVendorCode() {
+    public Integer getCustomerVendorCode() {
         return customerVendorCode;
     }
 
-    public void setCustomerVendorCode(String customerVendorCode) {
+    public void setCustomerVendorCode(Integer customerVendorCode) {
         this.customerVendorCode = customerVendorCode;
     }
 
@@ -153,15 +164,23 @@ public class PurchaseOrderSession {
         this.approvalStatus = approvalStatus;
     }
 
+    public String getRemark() {
+    return remark;
+  }
+
+    public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
     public static class OrderValue {
-        private String amount;
+        private Double amount;
         private String currency;
 
-        public String getAmount() {
+        public Double getAmount() {
             return amount;
         }
 
-        public void setAmount(String amount) {
+        public void setAmount(Double amount) {
             this.amount = amount;
         }
 
@@ -213,8 +232,8 @@ public class PurchaseOrderSession {
             private String city;
             private String state;
             private String country;
-            private String pincode;
-            private String phone;
+            private Integer pincode;
+            private Integer phone;
             private String emailId;
 
             public String get_id() {
@@ -281,19 +300,19 @@ public class PurchaseOrderSession {
                 this.country = country;
             }
 
-            public String getPincode() {
+            public Integer getPincode() {
                 return pincode;
             }
 
-            public void setPincode(String pincode) {
+            public void setPincode(Integer pincode) {
                 this.pincode = pincode;
             }
 
-            public String getPhone() {
+            public Integer getPhone() {
                 return phone;
             }
 
-            public void setPhone(String phone) {
+            public void setPhone(Integer phone) {
                 this.phone = phone;
             }
 
@@ -775,8 +794,8 @@ public class PurchaseOrderSession {
         private String moglixReceivedDate;
         private String status;
         private String costCentre;
-        private String isGovtPO;
-        private String constTaxRate;
+        private Boolean isGovtPO;
+        private Double constTaxRate;
         private String purchaserId;
         private String poState;
 
@@ -820,19 +839,19 @@ public class PurchaseOrderSession {
             this.costCentre = costCentre;
         }
 
-        public String getIsGovtPO() {
+        public Boolean getIsGovtPO() {
             return isGovtPO;
         }
 
-        public void setIsGovtPO(String isGovtPO) {
+        public void setIsGovtPO(Boolean isGovtPO) {
             this.isGovtPO = isGovtPO;
         }
 
-        public String getConstTaxRate() {
+        public Double getConstTaxRate() {
             return constTaxRate;
         }
 
-        public void setConstTaxRate(String constTaxRate) {
+        public void setConstTaxRate(Double constTaxRate) {
             this.constTaxRate = constTaxRate;
         }
 
@@ -854,31 +873,31 @@ public class PurchaseOrderSession {
     }
 
     public static class OtherCharge {
-        private String freight;
-        private String labour;
-        private String packaging;
+        private Double freight;
+        private Double labour;
+        private Double packaging;
 
-        public String getFreight() {
+        public Double getFreight() {
             return freight;
         }
 
-        public void setFreight(String freight) {
+        public void setFreight(Double freight) {
             this.freight = freight;
         }
 
-        public String getLabour() {
+        public Double getLabour() {
             return labour;
         }
 
-        public void setLabour(String labour) {
+        public void setLabour(Double labour) {
             this.labour = labour;
         }
 
-        public String getPackaging() {
+        public Double getPackaging() {
             return packaging;
         }
 
-        public void setPackaging(String packaging) {
+        public void setPackaging(Double packaging) {
             this.packaging = packaging;
         }
     }
@@ -906,7 +925,7 @@ public class PurchaseOrderSession {
 
     public static class Tax {
         private String taxType;
-        private String taxValue;
+        private Double taxValue;
 
         public String getTaxType() {
             return taxType;
@@ -916,13 +935,29 @@ public class PurchaseOrderSession {
             this.taxType = taxType;
         }
 
-        public String getTaxValue() {
+        public Double getTaxValue() {
             return taxValue;
         }
 
-        public void setTaxValue(String taxValue) {
+        public void setTaxValue(Double taxValue) {
             this.taxValue = taxValue;
         }
     }
+
+  public static class PaymentTerms{
+
+    private String term;
+    private Integer value;
+
+    public String getTerm() {return term; }
+
+    public void setTerm(String term) {this.term=term; }
+
+    public Integer getValue() {return value; }
+
+    public void setValue(Integer value) {this.value=value; }
+  }
+
+
 
 }
